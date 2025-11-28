@@ -1,10 +1,9 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/cyci?serverTimezone=Asia/Seoul&useSSL=false&characterEncoding=UTF-8
+    url: jdbc:mysql://localhost:3306/cyci?serverTimezone=Asia/Seoul&useSSL=false&characterEncoding=UTF-8&useUnicode=true
     username: cyci
     password: 1234
-
 mybatis:
   mapper-locations: classpath:mapper/**/*.yml
   type-aliases-package: kr.soft.study.dto

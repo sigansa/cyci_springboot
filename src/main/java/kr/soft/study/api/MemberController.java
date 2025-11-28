@@ -3,8 +3,10 @@ package kr.soft.study.api;
 import jakarta.servlet.http.HttpServletRequest;
 import kr.soft.study.dto.BoardDTO;
 import kr.soft.study.dto.MemberDTO;
+import kr.soft.study.service.MemberService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,6 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class MemberController {
 
     private static final Logger log = LoggerFactory.getLogger(MemberController.class);
+    private final MemberService memberService;
+
+    public MemberController(MemberService memberService) {
+        this.memberService = memberService;
+    }
 
     @GetMapping("/")
     public void print() {
@@ -62,5 +69,10 @@ public class MemberController {
         member.setUserId(id);
 
         return member;
+    }
+
+    @GetMapping("/test")
+    public void test() {
+        memberService.testConnection();
     }
 }
